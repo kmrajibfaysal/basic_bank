@@ -11,31 +11,36 @@
     <header>
       <h1 class="text-5xl text-center mt-16">
         Welcome to my
-        <span class="font-semibold text-purple-600"
+        <span class="font-semibold text-red-600"
           >Basic Functional Bank Ltd.</span
         >
       </h1>
     </header>
     <main>
-      <section class="bg-green-100 w-3/4 mx-auto mt-8 p-8">
+      <section class="bg-yellow-100 w-3/4 mx-auto mt-8 p-8">
         <h3 class="text-2xl mb-4">Please Login.</h3>
         <div>
           <input
+            id="email-input"
             class="border-2 border-gray-400 rounded block w-3/4 mb-4"
             type="email"
             placeholder=" Your email"
           />
           <input
+            id="password-input"
             class="border-2 border-gray-400 rounded block w-3/4 mb-4"
             type="password"
             placeholder=" Password"
           />
-          <button 
-          class="bg-green-500 px-4 py-2 rounded text-white font-medium">
+          <button
+            id="login-submit"
+            class="bg-green-500 px-4 py-2 rounded text-white font-medium"
+          >
             Login
           </button>
         </div>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
