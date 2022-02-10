@@ -25,5 +25,5 @@ withdrawButton.addEventListener('click', () => {
     withdrawInput.value = '';
     const previousBalance = parseInt(balance.innerText);
     const currentBalance = previousBalance - currentWithdraw;
-    balance.innerText = currentBalance; 
+    balance.innerText = currentBalance;
 });
