@@ -18,12 +18,16 @@ depositButton.addEventListener('click', () => {
 });
 
 withdrawButton.addEventListener('click', () => {
-    const previousWithdraw = parseInt(withdraw.innerText);
-    const currentWithdraw = parseInt(withdrawInput.value);
-    const newWithdraw = previousWithdraw + currentWithdraw;
-    withdraw.innerText = newWithdraw;
-    withdrawInput.value = '';
-    const previousBalance = parseInt(balance.innerText);
-    const currentBalance = previousBalance - currentWithdraw;
-    balance.innerText = currentBalance;
+    if (withdrawInput.value < parseInt(balance.innerText)) {
+        const previousWithdraw = parseInt(withdraw.innerText);
+        const currentWithdraw = parseInt(withdrawInput.value);
+        const newWithdraw = previousWithdraw + currentWithdraw;
+        withdraw.innerText = newWithdraw;
+        withdrawInput.value = '';
+        const previousBalance = parseInt(balance.innerText);
+        const currentBalance = previousBalance - currentWithdraw;
+        balance.innerText = currentBalance;
+    } else {
+        alert('Insuffiecient balance!');
+    }
 });
