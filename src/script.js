@@ -4,7 +4,7 @@ const passwordInput = document.querySelector('#password-input');
 
 // login validation function
 function validation() {
-    if (emailInput.value === 'kmrajibfaysal@gmail.com' && passwordInput.value === '#kmrf2206') {
+    if (emailInput.value === 'test@gmail.com' && passwordInput.value === 'test') {
         window.location.href = './banking.html';
     } else {
         alert('Please insert correct information!');
