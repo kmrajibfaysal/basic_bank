@@ -3,11 +3,10 @@ const depositBtn = document.querySelector('#deposit-button');
 const totalDeposit = document.querySelector('#deposit-total');
 const depositInput = document.querySelector('#deposit-input');
 const balance = document.querySelector('#balance');
+
 depositBtn.addEventListener('click', () => {
-    const previousDeposit = parseInt(totalDeposit.innerText);
-    const newDeposit = parseInt(depositInput.value);
-    totalDeposit.innerText = previousDeposit + newDeposit;
-    balance.innerText = parseInt(balance.innerText) + newDeposit;
+    totalDeposit.innerText = parseInt(totalDeposit.innerText) + parseInt(depositInput.value);
+    balance.innerText = parseInt(balance.innerText) + parseInt(depositInput.value);
     depositInput.value = '';
 });
 
@@ -17,9 +16,7 @@ const withDrawInput = document.querySelector('#withdraw-input');
 const totalWithdraw = document.querySelector('#withdraw-total');
 
 withdrawBtn.addEventListener('click', () => {
-    const previousWithdraw = parseInt(totalWithdraw.innerText);
-    const newWithdraw = parseInt(withDrawInput.value);
-    totalWithdraw.innerText = previousWithdraw + newWithdraw;
-    balance.innerText = parseInt(balance.innerText) - newWithdraw;
+    totalWithdraw.innerText = parseInt(totalWithdraw.innerText) + parseInt(withDrawInput.value);
+    balance.innerText = parseInt(balance.innerText) - parseInt(withDrawInput.value);
     withDrawInput.value = '';
 });
