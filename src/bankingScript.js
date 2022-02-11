@@ -8,6 +8,7 @@ depositBtn.addEventListener('click', () => {
     const newDeposit = parseInt(depositInput.value);
     totalDeposit.innerText = previousDeposit + newDeposit;
     balance.innerText = parseInt(balance.innerText) + newDeposit;
+    depositInput.value = '';
 });
 
 // withdraw button event handler
@@ -20,4 +21,5 @@ withdrawBtn.addEventListener('click', () => {
     const newWithdraw = parseInt(withDrawInput.value);
     totalWithdraw.innerText = previousWithdraw + newWithdraw;
     balance.innerText = parseInt(balance.innerText) - newWithdraw;
+    withDrawInput.value = '';
 });
