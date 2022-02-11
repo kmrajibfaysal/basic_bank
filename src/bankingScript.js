@@ -1,33 +1,37 @@
-const depositInput = document.querySelector('#deposit-input');
-const depositButton = document.querySelector('#deposit-button');
-const withdrawInput = document.querySelector('#withdraw-input');
-const withdrawButton = document.querySelector('#withdraw-button');
-const depositTotal = document.querySelector('#deposit-total');
-const balance = document.querySelector('#balance');
-const withdraw = document.querySelector('#withdraw');
+/* eslint-disable no-param-reassign */
 // deposit button event handler
-depositButton.addEventListener('click', () => {
-    const previousDepositAmount = parseInt(depositTotal.innerText);
-    const newDeposit = parseInt(depositInput.value);
-    const newDepositTotal = previousDepositAmount + newDeposit;
-    depositTotal.innerText = newDepositTotal;
-    depositInput.value = '';
-    const previousBalance = parseInt(balance.innerText);
-    const newBalance = previousBalance + newDeposit;
-    balance.innerText = newBalance;
+const depositBtn = document.querySelector('#deposit-button');
+const totalDeposit = document.querySelector('#deposit-total');
+const depositInput = document.querySelector('#deposit-input');
+const balance = document.querySelector('#balance');
+
+// ******************
+
+function getValue(previousValue, currentValue) {
+    const total = parseInt(previousValue.innerText) + parseInt(currentValue.value);
+    previousValue.innerText = total;
+
+    return previousValue.innerText;
+}
+// ******************
+
+depositBtn.addEventListener('click', () => {
+    if (depositInput.value > 0) {
+        getValue(totalDeposit, depositInput);
+        balance.innerText = parseInt(balance.innerText) + parseInt(depositInput.value);
+        depositInput.value = '';
+    }
 });
 
-withdrawButton.addEventListener('click', () => {
-    if (withdrawInput.value < parseInt(balance.innerText)) {
-        const previousWithdraw = parseInt(withdraw.innerText);
-        const currentWithdraw = parseInt(withdrawInput.value);
-        const newWithdraw = previousWithdraw + currentWithdraw;
-        withdraw.innerText = newWithdraw;
-        withdrawInput.value = '';
-        const previousBalance = parseInt(balance.innerText);
-        const currentBalance = previousBalance - currentWithdraw;
-        balance.innerText = currentBalance;
-    } else {
-        alert('Insuffiecient balance!');
+// withdraw button event handler
+const withdrawBtn = document.querySelector('#withdraw-button');
+const withDrawInput = document.querySelector('#withdraw-input');
+const totalWithdraw = document.querySelector('#withdraw-total');
+
+withdrawBtn.addEventListener('click', () => {
+    if (withDrawInput.value > 0) {
+        getValue(totalWithdraw, withDrawInput);
+        balance.innerText = parseInt(balance.innerText) - parseInt(withDrawInput.value);
+        withDrawInput.value = '';
     }
 });
