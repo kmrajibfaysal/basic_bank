@@ -8,10 +8,9 @@ const balance = document.querySelector('#balance');
 // ******************
 
 function getValue(previousValue, currentValue) {
-    if (parseInt(currentValue.value) !== 'NaN') {
-        const total = parseInt(previousValue.innerText) + parseInt(currentValue.value);
-        previousValue.innerText = total;
-    }
+    const total = parseInt(previousValue.innerText) + parseInt(currentValue.value);
+    previousValue.innerText = total;
+
     return previousValue.innerText;
 }
 // ******************
